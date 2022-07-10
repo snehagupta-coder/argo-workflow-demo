@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    path: argo-events
+    path: events
     repoURL: https://github.com/snehagupta-coder/argo-workflow-demo.git
     targetRevision: HEAD
   destination:
