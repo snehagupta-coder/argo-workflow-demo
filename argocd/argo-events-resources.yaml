@@ -6,8 +6,8 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: resources
   source:
+    project: default
     path: argo-events
     repoURL: https://github.com/snehagupta-coder/argo-workflow-demo.git
     targetRevision: HEAD
