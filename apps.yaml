@@ -8,8 +8,8 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  project: default
   source:
-    project: default
     repoURL: https://github.com/snehagupta-coder/argo-workflow-demo.git
     targetRevision: HEAD
     path: argocd
