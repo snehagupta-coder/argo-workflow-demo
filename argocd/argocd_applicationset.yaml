@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: sample_applicationset
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  generators:
+  - list:
+      elements:
+      - env: dev
+      - env: stg
+      - env: prd
+  template:
+    metadata:
+      name: 'sample_application_{{env}}'
+    spec:
+      project: dummy_app
+      source:
+        repoURL: https://github.com/snehagupta-coder/argo-workflow-demo.git
+        targetRevision: {{env}}
+        path: dummy-app
+      destination:
+        server: in-cluster
+        namespace: dummy-app-{{env}}

@@ -1,0 +1,17 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: webhook-token
+  namespace: argo-events
+spec:
+  encryptedData:
+    token: AgCG9+nL9AwUdaIiDb54KHsSdDbYi7S7vr4yU3QxvMVQE2rNPVSoKlUJoHe/ZEANhXY8yqNKYL2ohLZgWqFJpGsBKRtPawaNlVELyqljTIJdg1xOjxyV46LSgohiU3Pwry0LgMazzrD6imvOEUSw7faHbokfxSieInhEe6QkvwHgx7npBKdzyGpHMBUgPidgs/i5PrwpqbSjDehZNKDro6cLKhCR49fmeLcr7I+Bq/my1g2Zn4ZVC2naDSvys5hiKtsTndC5bj2yekIaGzJliF37g/9NXTtf6li6cIZouvavmtuQ2NfvPL3tndMz9T4FvL+jr6JXYK1jYne6evS1zsHUb46o8yhvTDOAgbCfMEQIbDxMFVIw6dS5GEXXl1jvJaehr8Qc2NN6jXlwr3tKktkyRN70PfvkYiLxmt6p5Po9lkIMSFzeXEBLeMNMpGU5htE7rv3acnDkcBQ+8iGwlRBsxNAe/ViYdJUkh2Whu7XpVS6/+tTlEam0Z0qA5VwgRNBQcEdXqI8PlF3P3snNSvx4bsuYBP5JSuIb8xOSNRRQjzZUzvWUUAv7IaW9tLG5GGhfzAcv4mxesZD8Ns3kjMmBjufzW68fpp7FCp1goOkqw2q7tLj0AgVGg7f3AHx3MxjE+8HgzGRhE1WVecvffYcZqZoLtGZR/3Hn4IYraHO8Wg+66Qh85GcSJoaaexp8SnKH/anBRXV89mUkuJw5LXtm
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: webhook-token
+      namespace: argo-events
+    type: Opaque
+

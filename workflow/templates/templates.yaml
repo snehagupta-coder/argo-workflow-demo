@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: rollout
+spec:
+  serviceAccountName: workflow
+  templates:
+  - name: git-merge
+    inputs:
+      parameters:
+      - name: environment
+      - name: repo_owner
+      - name: repo_name
+      - name: source
+      - name: destination
+    script:
+      image: alpine/git:v2.36.1
+      command: [sh]
+      source: |
+        set -e
+        git clone https://$(cat /.github/token)@github.com/{{inputs.parameters.repo_owner}}/{{inputs.parameters.repo_name}}
+        sleep 2
+        cd {{inputs.parameters.repo_name}}
+        git config user.name "$(cat /.github/user)"
+        git config user.email "$(cat /.github/email)"
+        git checkout -b {{inputs.parameters.destination}}
+        git remote add origin https://github.com/{{inputs.parameters.repo_owner}}/{{inputs.parameters.repo_name}}
+        git pull origin 
+        git merge {{inputs.parameters.source}
+        git commit -m "Upgraded {{inputs.parameters.environment}}/{{inputs.parameters.image_name}}.yaml with the tag {{inputs.parameters.tag}}"
+        git push
+      volumeMounts:
+      - name: github-access
+        mountPath: /.github/
