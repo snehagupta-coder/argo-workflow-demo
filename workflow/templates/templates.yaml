@@ -11,8 +11,7 @@ spec:
       - name: environment
       - name: repo_owner
       - name: repo_name
-      - name: source
-      - name: destination
+      - name: branch
     script:
       image: alpine/git:v2.36.1
       command: [sh]
@@ -23,12 +22,10 @@ spec:
         cd {{inputs.parameters.repo_name}}
         git config user.name "$(cat /.github/user)"
         git config user.email "$(cat /.github/email)"
-        git checkout -b {{inputs.parameters.destination}}
-        git remote add origin https://github.com/{{inputs.parameters.repo_owner}}/{{inputs.parameters.repo_name}}
-        git pull origin 
-        git merge {{inputs.parameters.source}
-        git commit -m "Upgraded {{inputs.parameters.environment}}/{{inputs.parameters.image_name}}.yaml with the tag {{inputs.parameters.tag}}"
-        git push
+        git branch origin/dev -f
+        git checkout -b {{inputs.parameters.branch}}
+        git pull origin {{inputs.parameters.branch}}
+        git push origin {{inputs.parameters.branch}}
       volumeMounts:
       - name: github-access
         mountPath: /.github/
