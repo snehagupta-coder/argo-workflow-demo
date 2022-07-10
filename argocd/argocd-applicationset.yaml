@@ -19,7 +19,7 @@ spec:
       project: dummy-app
       source:
         repoURL: https://github.com/snehagupta-coder/argo-workflow-demo.git
-        targetRevision: {{env}}
+        targetRevision: '{{env}}'
         path: dummy-app
       destination:
         server: in-cluster
