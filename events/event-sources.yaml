@@ -10,7 +10,7 @@ spec:
     - port: 12000
       targetPort: 12000
   github:
-    argo-combined-app:
+    argo-workflow-demo:
       owner: snehagupta-coder
       repository: argo-workflow-demo
       webhook:

@@ -24,7 +24,7 @@ spec:
             apiVersion: argoproj.io/v1alpha1
             kind: Workflow
             metadata:
-              generateName: argo-combined-app-
+              generateName: argo-workflow-demo-
               namespace: workflows
             spec:
               entrypoint: build
