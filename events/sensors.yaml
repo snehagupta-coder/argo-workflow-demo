@@ -27,7 +27,7 @@ spec:
               generateName: argo-workflow-demo-
               namespace: workflows
             spec:
-              entrypoint: build
+              entrypoint: rollout
               serviceAccountName: workflow
               volumes:
               - name: github-access
