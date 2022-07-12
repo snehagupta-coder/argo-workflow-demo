@@ -20,9 +20,6 @@ spec:
         url: http://webhook.104.45.191.60.xip.io
       events:
         - "*"
-      apiToken:
-        name: webhook-token
-        key: token
       insecure: true
       active: true
       contentType: json

@@ -3,6 +3,5 @@ kind: Kustomization
 resources:
 - event-sources.yaml
 - sensors.yaml
-- webhook-token.yaml
 namespace: argo-events
 
