@@ -25,7 +25,7 @@ spec:
             kind: Workflow
             metadata:
               generateName: argo-workflow-demo-
-              namespace: argos
+              namespace: argo
             spec:
               entrypoint: rollout
               serviceAccountName: workflow
