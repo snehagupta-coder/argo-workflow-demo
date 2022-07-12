@@ -8,7 +8,7 @@ image:
   repository: snehagupta83/ngnix
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.20.0"
+  tag: "1.20.1"
 
 imagePullSecrets: []
 nameOverride: ""
