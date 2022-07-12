@@ -60,9 +60,11 @@ spec:
                       - name: branch
                         value: dev
                   - name: validate-dev
-                    container:
-                      image: alpine:3.16.0
-                      command: [sleep, "1m"]
+                    template: wait
+                    arguments:
+                      parameters:
+                      - name: waittime
+                        value: "1m"
                     dependencies:
                     - rollout-dev
                   - name: rollout-stg
@@ -83,9 +85,11 @@ spec:
                     dependencies:
                     - velidate-dev
                   - name: validate-stg
-                    container:
-                      image: alpine:3.16.0
-                      command: [sleep, "1m"]
+                    template: wait
+                    arguments:
+                      parameters:
+                      - name: waittime
+                        value: "1m"
                     dependencies:
                     - rollout-stg
                   - name: rollout-prd
@@ -105,4 +109,11 @@ spec:
                         value: prd
                     dependencies:
                     - validate-stg
+              - name: wait
+                inputs:
+                  parameters:
+                  - name: waittime
+                container:
+                  image: alpine:3.16.0
+                  command: [sleep, {{inputs.parameters.waittime}}]
 
