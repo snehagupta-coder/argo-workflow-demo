@@ -115,5 +115,8 @@ spec:
                   - name: waittime
                 container:
                   image: alpine:3.16.0
-                  command: [sleep, {{inputs.parameters.waittime}}]
+                  command: [sh, -c]
+                  args:
+                  - |
+                    sleep {{inputs.parameters.waittime}}
 
